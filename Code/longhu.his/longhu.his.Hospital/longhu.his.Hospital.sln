@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.Hospital", "longhu.his.Hospital\longhu.his.Hospital.csproj", "{99F17370-6EDE-4DB7-8146-FC1A09AED0D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.Business", "longhu.his.Business\longhu.his.Business.csproj", "{3D435055-A4DD-40CB-8CF0-84450900912A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.DALFactory", "longhu.his.DALFactory\longhu.his.DALFactory.csproj", "{0C52C4C9-4332-4222-AFD4-B5248802E727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.Common", "longhu.his.Common\longhu.his.Common.csproj", "{1A6242CE-E800-49B8-B086-C1FE24C8F649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.Model", "longhu.his.Model\longhu.his.Model.csproj", "{B27D1D0F-E2A1-44D4-B395-DE676C2FCDFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.IDAL", "longhu.his.IDAL\longhu.his.IDAL.csproj", "{760A1A69-0D25-403B-8495-5450A903E718}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longhu.his.SQLServerDAL", "longhu.his.SQLServerDAL\longhu.his.SQLServerDAL.csproj", "{35A4F2EC-B0E1-4643-A956-D37869318F48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99F17370-6EDE-4DB7-8146-FC1A09AED0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F17370-6EDE-4DB7-8146-FC1A09AED0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F17370-6EDE-4DB7-8146-FC1A09AED0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F17370-6EDE-4DB7-8146-FC1A09AED0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D435055-A4DD-40CB-8CF0-84450900912A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D435055-A4DD-40CB-8CF0-84450900912A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D435055-A4DD-40CB-8CF0-84450900912A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D435055-A4DD-40CB-8CF0-84450900912A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C52C4C9-4332-4222-AFD4-B5248802E727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C52C4C9-4332-4222-AFD4-B5248802E727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C52C4C9-4332-4222-AFD4-B5248802E727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C52C4C9-4332-4222-AFD4-B5248802E727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6242CE-E800-49B8-B086-C1FE24C8F649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6242CE-E800-49B8-B086-C1FE24C8F649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6242CE-E800-49B8-B086-C1FE24C8F649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6242CE-E800-49B8-B086-C1FE24C8F649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B27D1D0F-E2A1-44D4-B395-DE676C2FCDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B27D1D0F-E2A1-44D4-B395-DE676C2FCDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B27D1D0F-E2A1-44D4-B395-DE676C2FCDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B27D1D0F-E2A1-44D4-B395-DE676C2FCDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760A1A69-0D25-403B-8495-5450A903E718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760A1A69-0D25-403B-8495-5450A903E718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760A1A69-0D25-403B-8495-5450A903E718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760A1A69-0D25-403B-8495-5450A903E718}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A4F2EC-B0E1-4643-A956-D37869318F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A4F2EC-B0E1-4643-A956-D37869318F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A4F2EC-B0E1-4643-A956-D37869318F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A4F2EC-B0E1-4643-A956-D37869318F48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://biemowo1985.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = longhu.his.Business\\longhu.his.Business.csproj
+		SccProjectName1 = longhu.his.Business
+		SccLocalPath1 = longhu.his.Business
+		SccProjectUniqueName2 = longhu.his.Hospital\\longhu.his.Hospital.csproj
+		SccProjectName2 = longhu.his.Hospital
+		SccLocalPath2 = longhu.his.Hospital
+		SccProjectUniqueName3 = longhu.his.DALFactory\\longhu.his.DALFactory.csproj
+		SccProjectName3 = longhu.his.DALFactory
+		SccLocalPath3 = longhu.his.DALFactory
+		SccProjectUniqueName4 = longhu.his.Common\\longhu.his.Common.csproj
+		SccProjectName4 = longhu.his.Common
+		SccLocalPath4 = longhu.his.Common
+		SccProjectUniqueName5 = longhu.his.Model\\longhu.his.Model.csproj
+		SccProjectName5 = longhu.his.Model
+		SccLocalPath5 = longhu.his.Model
+		SccProjectUniqueName6 = longhu.his.IDAL\\longhu.his.IDAL.csproj
+		SccProjectName6 = longhu.his.IDAL
+		SccLocalPath6 = longhu.his.IDAL
+		SccProjectUniqueName7 = longhu.his.SQLServerDAL\\longhu.his.SQLServerDAL.csproj
+		SccProjectName7 = longhu.his.SQLServerDAL
+		SccLocalPath7 = longhu.his.SQLServerDAL
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2002 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="longhu_hisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartName_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Depart_director" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Category_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+          <Property Name="parentId" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_deliveries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="delivery_user_id" Type="int" Nullable="false" />
+          <Property Name="drug_id" Type="int" Nullable="false" />
+          <Property Name="Deliveryi_type" Type="int" Nullable="false" />
+          <Property Name="Dg_Destroy_auditor_id" Type="int" Nullable="false" />
+          <Property Name="Dg_destory_audit_date" Type="datetime" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_deliveries_details">
+          <Key>
+            <PropertyRef Name="drug_deliveries_Id" />
+          </Key>
+          <Property Name="drug_deliveries_Id" Type="int" Nullable="false" />
+          <Property Name="supplier_id" Type="int" Nullable="false" />
+          <Property Name="dg_Category_id" Type="int" Nullable="false" />
+          <Property Name="dg_specification_id" Type="int" Nullable="false" />
+          <Property Name="dg_units_id" Type="int" Nullable="false" />
+          <Property Name="dg_name" Type="varchar" MaxLength="800" Nullable="false" />
+          <Property Name="dg_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="dg_brand" Type="varchar" MaxLength="500" />
+          <Property Name="dg_plant" Type="varchar" MaxLength="500" />
+          <Property Name="dg_price" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="dg_sale_price" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_entryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="entryName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="entryName_ab" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="800" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_shelves">
+          <Key>
+            <PropertyRef Name="Shelf_no" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shelf_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Shelf_row_amount" Type="int" Nullable="false" />
+          <Property Name="Shelf_column_amount" Type="int" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_shelves_maping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dg_category_id" Type="int" Nullable="false" />
+          <Property Name="drug_id" Type="int" Nullable="false" />
+          <Property Name="Shelf_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Shelg_row_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Shelg_column_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="current_sotred_amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_specification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Specification_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Specific_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="supplier_name" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="supplier_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Contacts" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Telephone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="1000" />
+          <Property Name="Address1" Type="varchar" MaxLength="1000" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drug_units">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Units_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Units_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="drugs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dg_Category_id" Type="int" Nullable="false" />
+          <Property Name="dg_specification_id" Type="int" Nullable="false" />
+          <Property Name="dg_units_id" Type="int" Nullable="false" />
+          <Property Name="dg_name" Type="varchar" MaxLength="800" Nullable="false" />
+          <Property Name="dg_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="dg_brand" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="dg_plant" Type="varchar" MaxLength="500" />
+          <Property Name="dg_price" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="dg_sale_price" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="dg_godown_entry_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dg_expiration_date" Type="datetime" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="godown_entry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Entry_user_id" Type="int" Nullable="false" />
+          <Property Name="purchase_note_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drug_entryType_id" Type="int" Nullable="false" />
+          <Property Name="purchase_auditor_id" Type="int" Nullable="false" />
+          <Property Name="billNumer" Type="varchar" MaxLength="50" />
+          <Property Name="bill_date" Type="datetime" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“longhu_his.dbo.godown_entry_details”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="godown_entry_details">
+          <Key>
+            <PropertyRef Name="godown_entry_Id" />
+            <PropertyRef Name="supplier_id" />
+            <PropertyRef Name="dg_Category_id" />
+            <PropertyRef Name="dg_specification_id" />
+            <PropertyRef Name="dg_units_id" />
+            <PropertyRef Name="dg_name" />
+            <PropertyRef Name="dg_name_ab" />
+            <PropertyRef Name="dg_price" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="godown_entry_Id" Type="int" Nullable="false" />
+          <Property Name="supplier_id" Type="int" Nullable="false" />
+          <Property Name="dg_Category_id" Type="int" Nullable="false" />
+          <Property Name="dg_specification_id" Type="int" Nullable="false" />
+          <Property Name="dg_units_id" Type="int" Nullable="false" />
+          <Property Name="dg_name" Type="varchar" MaxLength="800" Nullable="false" />
+          <Property Name="dg_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="dg_brand" Type="varchar" MaxLength="500" />
+          <Property Name="dg_plant" Type="varchar" MaxLength="500" />
+          <Property Name="dg_price" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+          <Property Name="remark" Type="varchar" MaxLength="1000" />
+          <Property Name="dg_codes" Type="varchar" MaxLength="50" />
+          <Property Name="dg_ProduceArea" Type="varchar" MaxLength="500" />
+          <Property Name="dg_last_price" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="dg_whole_price" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="drug_Packer" Type="varchar" MaxLength="300" />
+          <Property Name="dg_sales_price" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Drug_batch_number" Type="varchar" MaxLength="30" />
+          <Property Name="Dicount_rate" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Default_discount_rate" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="dg_expiration_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sys_permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Permissionname" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Permissionname_ab" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“longhu_his.dbo.sys_permission_roles”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="sys_permission_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="roleId" />
+            <PropertyRef Name="permissions" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleId" Type="int" Nullable="false" />
+          <Property Name="permissions" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="sys_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rolename" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Rolename_ab" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“longhu_his.dbo.sys_user_roles”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="sys_user_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="Role_id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="Role_id" Type="int" Nullable="false" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="sys_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userTypeId" Type="int" Nullable="false" />
+          <Property Name="departmentId" Type="int" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Adress" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="500" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telphone" Type="varchar" MaxLength="20" />
+          <Property Name="QQ" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="300" />
+          <Property Name="residentID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <EntityType Name="sys_usr_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="updated_date" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“longhu_his.dbo.View_GetNotNotedDrugEntries”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_GetNotNotedDrugEntries">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Entry_user_id" />
+            <PropertyRef Name="purchase_note_id" />
+            <PropertyRef Name="drug_entryType_id" />
+            <PropertyRef Name="purchase_auditor_id" />
+            <PropertyRef Name="supplier_id" />
+            <PropertyRef Name="dg_Category_id" />
+            <PropertyRef Name="dg_specification_id" />
+            <PropertyRef Name="dg_units_id" />
+            <PropertyRef Name="dg_name" />
+            <PropertyRef Name="dg_name_ab" />
+            <PropertyRef Name="dg_price" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Entry_user_id" Type="int" Nullable="false" />
+          <Property Name="purchase_note_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="drug_entryType_id" Type="int" Nullable="false" />
+          <Property Name="entryName" Type="varchar" MaxLength="200" />
+          <Property Name="entryName_ab" Type="varchar" MaxLength="200" />
+          <Property Name="purchase_auditor_id" Type="int" Nullable="false" />
+          <Property Name="purchase_auditor_Name" Type="varchar" MaxLength="50" />
+          <Property Name="purchase_auditor_Account" Type="varchar" MaxLength="50" />
+          <Property Name="purchase_auditor_Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="purchase_auditor_Telphone" Type="varchar" MaxLength="20" />
+          <Property Name="purchase_auditor_Adress" Type="varchar" MaxLength="500" />
+          <Property Name="purchase_Name" Type="varchar" MaxLength="50" />
+          <Property Name="purchase_Account" Type="varchar" MaxLength="50" />
+          <Property Name="purchase_Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="purchase_Telphone" Type="varchar" MaxLength="20" />
+          <Property Name="purchase_Adress" Type="varchar" MaxLength="500" />
+          <Property Name="billNumer" Type="varchar" MaxLength="50" />
+          <Property Name="bill_date" Type="datetime" />
+          <Property Name="supplier_id" Type="int" Nullable="false" />
+          <Property Name="supplier_name" Type="varchar" MaxLength="350" />
+          <Property Name="supplier_name_ab" Type="varchar" MaxLength="50" />
+          <Property Name="supplier_Contacts" Type="varchar" MaxLength="50" />
+          <Property Name="supplier_Telephone" Type="varchar" MaxLength="20" />
+          <Property Name="supplier_Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="supplier_Address" Type="varchar" MaxLength="1000" />
+          <Property Name="dg_Category_id" Type="int" Nullable="false" />
+          <Property Name="Category_name" Type="varchar" MaxLength="150" />
+          <Property Name="Category_name_ab" Type="varchar" MaxLength="50" />
+          <Property Name="parentId" Type="int" />
+          <Property Name="dg_specification_id" Type="int" Nullable="false" />
+          <Property Name="Specification_name" Type="varchar" MaxLength="150" />
+          <Property Name="Specific_name_ab" Type="varchar" MaxLength="50" />
+          <Property Name="dg_units_id" Type="int" Nullable="false" />
+          <Property Name="Units_name" Type="varchar" MaxLength="150" />
+          <Property Name="Units_name_ab" Type="varchar" MaxLength="50" />
+          <Property Name="dg_name" Type="varchar" MaxLength="800" Nullable="false" />
+          <Property Name="dg_name_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="dg_brand" Type="varchar" MaxLength="500" />
+          <Property Name="dg_plant" Type="varchar" MaxLength="500" />
+          <Property Name="dg_price" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Updated_date" Type="datetime" />
+          <Property Name="Updatedby" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Delete_flag" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“longhu_his.dbo.View_GetUserInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_GetUserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="userTypeId" />
+            <PropertyRef Name="departmentId" />
+            <PropertyRef Name="Account" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="Adress" />
+            <PropertyRef Name="Mobile" />
+            <PropertyRef Name="residentID" />
+            <PropertyRef Name="DepartName" />
+            <PropertyRef Name="DepartName_ab" />
+            <PropertyRef Name="typeName" />
+            <PropertyRef Name="permissions" />
+            <PropertyRef Name="permisionId" />
+            <PropertyRef Name="Rolename" />
+            <PropertyRef Name="Rolename_ab" />
+            <PropertyRef Name="Permissionname" />
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="userTypeId" Type="int" Nullable="false" />
+          <Property Name="departmentId" Type="int" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Adress" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="500" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telphone" Type="varchar" MaxLength="20" />
+          <Property Name="QQ" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="300" />
+          <Property Name="residentID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Created_date" Type="datetime" />
+          <Property Name="Createdby" Type="varchar" MaxLength="50" />
+          <Property Name="Delete_flag" Type="int" />
+          <Property Name="DepartName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartName_ab" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="typeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="permissions" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="permisionId" Type="int" Nullable="false" />
+          <Property Name="Rolename" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Rolename_ab" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Permissionname" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="roleId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“longhu_his.dbo.View_Permission_Roles”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Permission_Roles">
+          <Key>
+            <PropertyRef Name="roleId" />
+            <PropertyRef Name="permisionId" />
+            <PropertyRef Name="Rolename" />
+            <PropertyRef Name="Rolename_ab" />
+            <PropertyRef Name="Permissionname" />
+            <PropertyRef Name="Permissionname_ab" />
+            <PropertyRef Name="permissions" />
+          </Key>
+          <Property Name="roleId" Type="int" Nullable="false" />
+          <Property Name="permisionId" Type="int" Nullable="false" />
+          <Property Name="Rolename" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Rolename_ab" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Permissionname" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Permissionname_ab" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="permissions" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_drug_deliveries_details_drug_specification">
+          <End Role="drug_specification" Type="Self.drug_specification" Multiplicity="1" />
+          <End Role="drug_deliveries_details" Type="Self.drug_deliveries_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_specification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="drug_deliveries_details">
+              <PropertyRef Name="dg_specification_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drug_deliveries_details_drug_supplier">
+          <End Role="drug_supplier" Type="Self.drug_supplier" Multiplicity="1" />
+          <End Role="drug_deliveries_details" Type="Self.drug_deliveries_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drug_deliveries_details">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drug_deliveries_details_drug_units">
+          <End Role="drug_units" Type="Self.drug_units" Multiplicity="1" />
+          <End Role="drug_deliveries_details" Type="Self.drug_deliveries_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_units">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drug_deliveries_details">
+              <PropertyRef Name="dg_units_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drugs_drug_categories">
+          <End Role="drug_categories" Type="Self.drug_categories" Multiplicity="1" />
+          <End Role="drugs" Type="Self.drugs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drugs">
+              <PropertyRef Name="dg_Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drugs_drug_specification">
+          <End Role="drug_specification" Type="Self.drug_specification" Multiplicity="1" />
+          <End Role="drugs" Type="Self.drugs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_specification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="drugs">
+              <PropertyRef Name="dg_specification_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drugs_drug_units">
+          <End Role="drug_units" Type="Self.drug_units" Multiplicity="1" />
+          <End Role="drugs" Type="Self.drugs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_units">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drugs">
+              <PropertyRef Name="dg_units_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_categories">
+          <End Role="drug_categories" Type="Self.drug_categories" Multiplicity="1" />
+          <End Role="godown_entry_details" Type="Self.godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="dg_Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_specification">
+          <End Role="drug_specification" Type="Self.drug_specification" Multiplicity="1" />
+          <End Role="godown_entry_details" Type="Self.godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_specification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="dg_specification_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_supplier">
+          <End Role="drug_supplier" Type="Self.drug_supplier" Multiplicity="1" />
+          <End Role="godown_entry_details" Type="Self.godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_units">
+          <End Role="drug_units" Type="Self.drug_units" Multiplicity="1" />
+          <End Role="godown_entry_details" Type="Self.godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_units">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="dg_units_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_users_sys_usr_type">
+          <End Role="sys_usr_type" Type="Self.sys_usr_type" Multiplicity="1" />
+          <End Role="sys_users" Type="Self.sys_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_usr_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_users">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="longhu_hisModelStoreContainer">
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_categories" EntityType="Self.drug_categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_deliveries" EntityType="Self.drug_deliveries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_deliveries_details" EntityType="Self.drug_deliveries_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_entryType" EntityType="Self.drug_entryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_shelves" EntityType="Self.drug_shelves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_shelves_maping" EntityType="Self.drug_shelves_maping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_specification" EntityType="Self.drug_specification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_supplier" EntityType="Self.drug_supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drug_units" EntityType="Self.drug_units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="drugs" EntityType="Self.drugs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="godown_entry" EntityType="Self.godown_entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_permission" EntityType="Self.sys_permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_roles" EntityType="Self.sys_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_users" EntityType="Self.sys_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_usr_type" EntityType="Self.sys_usr_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="godown_entry_details" EntityType="Self.godown_entry_details" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [godown_entry_details].[godown_entry_Id] AS [godown_entry_Id], 
+    [godown_entry_details].[supplier_id] AS [supplier_id], 
+    [godown_entry_details].[dg_Category_id] AS [dg_Category_id], 
+    [godown_entry_details].[dg_specification_id] AS [dg_specification_id], 
+    [godown_entry_details].[dg_units_id] AS [dg_units_id], 
+    [godown_entry_details].[dg_name] AS [dg_name], 
+    [godown_entry_details].[dg_name_ab] AS [dg_name_ab], 
+    [godown_entry_details].[Description] AS [Description], 
+    [godown_entry_details].[dg_brand] AS [dg_brand], 
+    [godown_entry_details].[dg_plant] AS [dg_plant], 
+    [godown_entry_details].[dg_price] AS [dg_price], 
+    [godown_entry_details].[Amount] AS [Amount], 
+    [godown_entry_details].[Created_date] AS [Created_date], 
+    [godown_entry_details].[Createdby] AS [Createdby], 
+    [godown_entry_details].[Updated_date] AS [Updated_date], 
+    [godown_entry_details].[Updatedby] AS [Updatedby], 
+    [godown_entry_details].[Delete_flag] AS [Delete_flag], 
+    [godown_entry_details].[remark] AS [remark], 
+    [godown_entry_details].[dg_codes] AS [dg_codes], 
+    [godown_entry_details].[dg_ProduceArea] AS [dg_ProduceArea], 
+    [godown_entry_details].[dg_last_price] AS [dg_last_price], 
+    [godown_entry_details].[dg_whole_price] AS [dg_whole_price], 
+    [godown_entry_details].[drug_Packer] AS [drug_Packer], 
+    [godown_entry_details].[dg_sales_price] AS [dg_sales_price], 
+    [godown_entry_details].[Drug_batch_number] AS [Drug_batch_number], 
+    [godown_entry_details].[Dicount_rate] AS [Dicount_rate], 
+    [godown_entry_details].[Default_discount_rate] AS [Default_discount_rate], 
+    [godown_entry_details].[dg_expiration_date] AS [dg_expiration_date]
+    FROM [dbo].[godown_entry_details] AS [godown_entry_details]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sys_permission_roles" EntityType="Self.sys_permission_roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sys_permission_roles].[Id] AS [Id], 
+    [sys_permission_roles].[roleId] AS [roleId], 
+    [sys_permission_roles].[permissions] AS [permissions], 
+    [sys_permission_roles].[updated_date] AS [updated_date], 
+    [sys_permission_roles].[updatedBy] AS [updatedBy], 
+    [sys_permission_roles].[Created_date] AS [Created_date], 
+    [sys_permission_roles].[Createdby] AS [Createdby], 
+    [sys_permission_roles].[Delete_flag] AS [Delete_flag]
+    FROM [dbo].[sys_permission_roles] AS [sys_permission_roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sys_user_roles" EntityType="Self.sys_user_roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sys_user_roles].[Id] AS [Id], 
+    [sys_user_roles].[user_id] AS [user_id], 
+    [sys_user_roles].[Role_id] AS [Role_id], 
+    [sys_user_roles].[updated_date] AS [updated_date], 
+    [sys_user_roles].[updatedBy] AS [updatedBy], 
+    [sys_user_roles].[Created_date] AS [Created_date], 
+    [sys_user_roles].[Createdby] AS [Createdby], 
+    [sys_user_roles].[Delete_flag] AS [Delete_flag]
+    FROM [dbo].[sys_user_roles] AS [sys_user_roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_GetNotNotedDrugEntries" EntityType="Self.View_GetNotNotedDrugEntries" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_GetNotNotedDrugEntries].[Id] AS [Id], 
+    [View_GetNotNotedDrugEntries].[Entry_user_id] AS [Entry_user_id], 
+    [View_GetNotNotedDrugEntries].[purchase_note_id] AS [purchase_note_id], 
+    [View_GetNotNotedDrugEntries].[drug_entryType_id] AS [drug_entryType_id], 
+    [View_GetNotNotedDrugEntries].[entryName] AS [entryName], 
+    [View_GetNotNotedDrugEntries].[entryName_ab] AS [entryName_ab], 
+    [View_GetNotNotedDrugEntries].[purchase_auditor_id] AS [purchase_auditor_id], 
+    [View_GetNotNotedDrugEntries].[purchase_auditor_Name] AS [purchase_auditor_Name], 
+    [View_GetNotNotedDrugEntries].[purchase_auditor_Account] AS [purchase_auditor_Account], 
+    [View_GetNotNotedDrugEntries].[purchase_auditor_Mobile] AS [purchase_auditor_Mobile], 
+    [View_GetNotNotedDrugEntries].[purchase_auditor_Telphone] AS [purchase_auditor_Telphone], 
+    [View_GetNotNotedDrugEntries].[purchase_auditor_Adress] AS [purchase_auditor_Adress], 
+    [View_GetNotNotedDrugEntries].[purchase_Name] AS [purchase_Name], 
+    [View_GetNotNotedDrugEntries].[purchase_Account] AS [purchase_Account], 
+    [View_GetNotNotedDrugEntries].[purchase_Mobile] AS [purchase_Mobile], 
+    [View_GetNotNotedDrugEntries].[purchase_Telphone] AS [purchase_Telphone], 
+    [View_GetNotNotedDrugEntries].[purchase_Adress] AS [purchase_Adress], 
+    [View_GetNotNotedDrugEntries].[billNumer] AS [billNumer], 
+    [View_GetNotNotedDrugEntries].[bill_date] AS [bill_date], 
+    [View_GetNotNotedDrugEntries].[supplier_id] AS [supplier_id], 
+    [View_GetNotNotedDrugEntries].[supplier_name] AS [supplier_name], 
+    [View_GetNotNotedDrugEntries].[supplier_name_ab] AS [supplier_name_ab], 
+    [View_GetNotNotedDrugEntries].[supplier_Contacts] AS [supplier_Contacts], 
+    [View_GetNotNotedDrugEntries].[supplier_Telephone] AS [supplier_Telephone], 
+    [View_GetNotNotedDrugEntries].[supplier_Mobile] AS [supplier_Mobile], 
+    [View_GetNotNotedDrugEntries].[supplier_Address] AS [supplier_Address], 
+    [View_GetNotNotedDrugEntries].[dg_Category_id] AS [dg_Category_id], 
+    [View_GetNotNotedDrugEntries].[Category_name] AS [Category_name], 
+    [View_GetNotNotedDrugEntries].[Category_name_ab] AS [Category_name_ab], 
+    [View_GetNotNotedDrugEntries].[parentId] AS [parentId], 
+    [View_GetNotNotedDrugEntries].[dg_specification_id] AS [dg_specification_id], 
+    [View_GetNotNotedDrugEntries].[Specification_name] AS [Specification_name], 
+    [View_GetNotNotedDrugEntries].[Specific_name_ab] AS [Specific_name_ab], 
+    [View_GetNotNotedDrugEntries].[dg_units_id] AS [dg_units_id], 
+    [View_GetNotNotedDrugEntries].[Units_name] AS [Units_name], 
+    [View_GetNotNotedDrugEntries].[Units_name_ab] AS [Units_name_ab], 
+    [View_GetNotNotedDrugEntries].[dg_name] AS [dg_name], 
+    [View_GetNotNotedDrugEntries].[dg_name_ab] AS [dg_name_ab], 
+    [View_GetNotNotedDrugEntries].[Description] AS [Description], 
+    [View_GetNotNotedDrugEntries].[dg_brand] AS [dg_brand], 
+    [View_GetNotNotedDrugEntries].[dg_plant] AS [dg_plant], 
+    [View_GetNotNotedDrugEntries].[dg_price] AS [dg_price], 
+    [View_GetNotNotedDrugEntries].[Amount] AS [Amount], 
+    [View_GetNotNotedDrugEntries].[Created_date] AS [Created_date], 
+    [View_GetNotNotedDrugEntries].[Createdby] AS [Createdby], 
+    [View_GetNotNotedDrugEntries].[Updated_date] AS [Updated_date], 
+    [View_GetNotNotedDrugEntries].[Updatedby] AS [Updatedby], 
+    [View_GetNotNotedDrugEntries].[Status] AS [Status], 
+    [View_GetNotNotedDrugEntries].[Delete_flag] AS [Delete_flag]
+    FROM [dbo].[View_GetNotNotedDrugEntries] AS [View_GetNotNotedDrugEntries]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_GetUserInfo" EntityType="Self.View_GetUserInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_GetUserInfo].[Id] AS [Id], 
+    [View_GetUserInfo].[userTypeId] AS [userTypeId], 
+    [View_GetUserInfo].[departmentId] AS [departmentId], 
+    [View_GetUserInfo].[Account] AS [Account], 
+    [View_GetUserInfo].[password] AS [password], 
+    [View_GetUserInfo].[userName] AS [userName], 
+    [View_GetUserInfo].[Gender] AS [Gender], 
+    [View_GetUserInfo].[Age] AS [Age], 
+    [View_GetUserInfo].[Adress] AS [Adress], 
+    [View_GetUserInfo].[Address1] AS [Address1], 
+    [View_GetUserInfo].[Mobile] AS [Mobile], 
+    [View_GetUserInfo].[Telphone] AS [Telphone], 
+    [View_GetUserInfo].[QQ] AS [QQ], 
+    [View_GetUserInfo].[Email] AS [Email], 
+    [View_GetUserInfo].[residentID] AS [residentID], 
+    [View_GetUserInfo].[Created_date] AS [Created_date], 
+    [View_GetUserInfo].[Createdby] AS [Createdby], 
+    [View_GetUserInfo].[Delete_flag] AS [Delete_flag], 
+    [View_GetUserInfo].[DepartName] AS [DepartName], 
+    [View_GetUserInfo].[DepartName_ab] AS [DepartName_ab], 
+    [View_GetUserInfo].[typeName] AS [typeName], 
+    [View_GetUserInfo].[permissions] AS [permissions], 
+    [View_GetUserInfo].[permisionId] AS [permisionId], 
+    [View_GetUserInfo].[Rolename] AS [Rolename], 
+    [View_GetUserInfo].[Rolename_ab] AS [Rolename_ab], 
+    [View_GetUserInfo].[Permissionname] AS [Permissionname], 
+    [View_GetUserInfo].[roleId] AS [roleId]
+    FROM [dbo].[View_GetUserInfo] AS [View_GetUserInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Permission_Roles" EntityType="Self.View_Permission_Roles" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Permission_Roles].[roleId] AS [roleId], 
+    [View_Permission_Roles].[permisionId] AS [permisionId], 
+    [View_Permission_Roles].[Rolename] AS [Rolename], 
+    [View_Permission_Roles].[Rolename_ab] AS [Rolename_ab], 
+    [View_Permission_Roles].[Permissionname] AS [Permissionname], 
+    [View_Permission_Roles].[Permissionname_ab] AS [Permissionname_ab], 
+    [View_Permission_Roles].[permissions] AS [permissions]
+    FROM [dbo].[View_Permission_Roles] AS [View_Permission_Roles]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_drug_deliveries_details_drug_specification" Association="Self.FK_drug_deliveries_details_drug_specification">
+            <End Role="drug_specification" EntitySet="drug_specification" />
+            <End Role="drug_deliveries_details" EntitySet="drug_deliveries_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drug_deliveries_details_drug_supplier" Association="Self.FK_drug_deliveries_details_drug_supplier">
+            <End Role="drug_supplier" EntitySet="drug_supplier" />
+            <End Role="drug_deliveries_details" EntitySet="drug_deliveries_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drug_deliveries_details_drug_units" Association="Self.FK_drug_deliveries_details_drug_units">
+            <End Role="drug_units" EntitySet="drug_units" />
+            <End Role="drug_deliveries_details" EntitySet="drug_deliveries_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drugs_drug_categories" Association="Self.FK_drugs_drug_categories">
+            <End Role="drug_categories" EntitySet="drug_categories" />
+            <End Role="drugs" EntitySet="drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drugs_drug_specification" Association="Self.FK_drugs_drug_specification">
+            <End Role="drug_specification" EntitySet="drug_specification" />
+            <End Role="drugs" EntitySet="drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drugs_drug_units" Association="Self.FK_drugs_drug_units">
+            <End Role="drug_units" EntitySet="drug_units" />
+            <End Role="drugs" EntitySet="drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_categories" Association="Self.FK_godown_entry_details_drug_categories">
+            <End Role="drug_categories" EntitySet="drug_categories" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_specification" Association="Self.FK_godown_entry_details_drug_specification">
+            <End Role="drug_specification" EntitySet="drug_specification" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_supplier" Association="Self.FK_godown_entry_details_drug_supplier">
+            <End Role="drug_supplier" EntitySet="drug_supplier" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_units" Association="Self.FK_godown_entry_details_drug_units">
+            <End Role="drug_units" EntitySet="drug_units" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_users_sys_usr_type" Association="Self.FK_sys_users_sys_usr_type">
+            <End Role="sys_usr_type" EntitySet="sys_usr_type" />
+            <End Role="sys_users" EntitySet="sys_users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="longhu_hisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepartName_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Depart_director" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="drug_categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Category_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drugs" Relationship="Self.FK_drugs_drug_categories" FromRole="drug_categories" ToRole="drugs" />
+          <Property Name="parentId" Type="Int32" />
+          <NavigationProperty Name="godown_entry_details" Relationship="longhu_hisModel.FK_godown_entry_details_drug_categories" FromRole="drug_categories" ToRole="godown_entry_details" />
+        </EntityType>
+        <EntityType Name="drug_deliveries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="delivery_user_id" Type="Int32" Nullable="false" />
+          <Property Name="drug_id" Type="Int32" Nullable="false" />
+          <Property Name="Deliveryi_type" Type="Int32" Nullable="false" />
+          <Property Name="Dg_Destroy_auditor_id" Type="Int32" Nullable="false" />
+          <Property Name="Dg_destory_audit_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="drug_deliveries_details">
+          <Key>
+            <PropertyRef Name="drug_deliveries_Id" />
+          </Key>
+          <Property Name="drug_deliveries_Id" Type="Int32" Nullable="false" />
+          <Property Name="supplier_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_Category_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_specification_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_units_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_name" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dg_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dg_brand" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_plant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="dg_sale_price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drug_specification" Relationship="Self.FK_drug_deliveries_details_drug_specification" FromRole="drug_deliveries_details" ToRole="drug_specification" />
+          <NavigationProperty Name="drug_supplier" Relationship="Self.FK_drug_deliveries_details_drug_supplier" FromRole="drug_deliveries_details" ToRole="drug_supplier" />
+          <NavigationProperty Name="drug_units" Relationship="Self.FK_drug_deliveries_details_drug_units" FromRole="drug_deliveries_details" ToRole="drug_units" />
+        </EntityType>
+        <EntityType Name="drug_entryType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="entryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="entryName_ab" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="drug_shelves">
+          <Key>
+            <PropertyRef Name="Shelf_no" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shelf_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shelf_row_amount" Type="Int32" Nullable="false" />
+          <Property Name="Shelf_column_amount" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="drug_shelves_maping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dg_category_id" Type="Int32" Nullable="false" />
+          <Property Name="drug_id" Type="Int32" Nullable="false" />
+          <Property Name="Shelf_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shelg_row_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shelg_column_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="current_sotred_amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="drug_specification">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Specification_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Specific_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drug_deliveries_details" Relationship="Self.FK_drug_deliveries_details_drug_specification" FromRole="drug_specification" ToRole="drug_deliveries_details" />
+          <NavigationProperty Name="drugs" Relationship="Self.FK_drugs_drug_specification" FromRole="drug_specification" ToRole="drugs" />
+          <NavigationProperty Name="godown_entry_details" Relationship="longhu_hisModel.FK_godown_entry_details_drug_specification" FromRole="drug_specification" ToRole="godown_entry_details" />
+        </EntityType>
+        <EntityType Name="drug_supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="supplier_name" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="supplier_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Contacts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drug_deliveries_details" Relationship="Self.FK_drug_deliveries_details_drug_supplier" FromRole="drug_supplier" ToRole="drug_deliveries_details" />
+          <NavigationProperty Name="godown_entry_details" Relationship="longhu_hisModel.FK_godown_entry_details_drug_supplier" FromRole="drug_supplier" ToRole="godown_entry_details" />
+        </EntityType>
+        <EntityType Name="drug_units">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Units_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Units_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drug_deliveries_details" Relationship="Self.FK_drug_deliveries_details_drug_units" FromRole="drug_units" ToRole="drug_deliveries_details" />
+          <NavigationProperty Name="drugs" Relationship="Self.FK_drugs_drug_units" FromRole="drug_units" ToRole="drugs" />
+          <NavigationProperty Name="godown_entry_details" Relationship="longhu_hisModel.FK_godown_entry_details_drug_units" FromRole="drug_units" ToRole="godown_entry_details" />
+        </EntityType>
+        <EntityType Name="drug">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dg_Category_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_specification_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_units_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_name" Type="String" MaxLength="800" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dg_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dg_brand" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dg_plant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="dg_sale_price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="dg_godown_entry_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dg_expiration_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drug_categories" Relationship="Self.FK_drugs_drug_categories" FromRole="drugs" ToRole="drug_categories" />
+          <NavigationProperty Name="drug_specification" Relationship="Self.FK_drugs_drug_specification" FromRole="drugs" ToRole="drug_specification" />
+          <NavigationProperty Name="drug_units" Relationship="Self.FK_drugs_drug_units" FromRole="drugs" ToRole="drug_units" />
+        </EntityType>
+        <EntityType Name="sys_permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Permissionname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Permissionname_ab" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sys_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rolename" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rolename_ab" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sys_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userTypeId" Type="Int32" Nullable="false" />
+          <Property Name="departmentId" Type="Int32" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QQ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="residentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="sys_usr_type" Relationship="Self.FK_sys_users_sys_usr_type" FromRole="sys_users" ToRole="sys_usr_type" />
+        </EntityType>
+        <EntityType Name="sys_usr_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="sys_users" Relationship="Self.FK_sys_users_sys_usr_type" FromRole="sys_usr_type" ToRole="sys_users" />
+        </EntityType>
+        <EntityType Name="sys_permission_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="roleId" />
+            <PropertyRef Name="permissions" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+          <Property Name="permissions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sys_user_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="Role_id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="Role_id" Type="Int32" Nullable="false" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_GetUserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="userTypeId" />
+            <PropertyRef Name="departmentId" />
+            <PropertyRef Name="Account" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="userName" />
+            <PropertyRef Name="Adress" />
+            <PropertyRef Name="Mobile" />
+            <PropertyRef Name="residentID" />
+            <PropertyRef Name="DepartName" />
+            <PropertyRef Name="DepartName_ab" />
+            <PropertyRef Name="typeName" />
+            <PropertyRef Name="permissions" />
+            <PropertyRef Name="permisionId" />
+            <PropertyRef Name="Rolename" />
+            <PropertyRef Name="Rolename_ab" />
+            <PropertyRef Name="Permissionname" />
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userTypeId" Type="Int32" Nullable="false" />
+          <Property Name="departmentId" Type="Int32" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QQ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="residentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <Property Name="DepartName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DepartName_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="typeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="permissions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="permisionId" Type="Int32" Nullable="false" />
+          <Property Name="Rolename" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rolename_ab" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Permissionname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_Permission_Roles">
+          <Key>
+            <PropertyRef Name="roleId" />
+            <PropertyRef Name="permisionId" />
+            <PropertyRef Name="Rolename" />
+            <PropertyRef Name="Rolename_ab" />
+            <PropertyRef Name="Permissionname" />
+            <PropertyRef Name="Permissionname_ab" />
+            <PropertyRef Name="permissions" />
+          </Key>
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+          <Property Name="permisionId" Type="Int32" Nullable="false" />
+          <Property Name="Rolename" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rolename_ab" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Permissionname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Permissionname_ab" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="permissions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_drugs_drug_categories">
+          <End Role="drug_categories" Type="Self.drug_categories" Multiplicity="1" />
+          <End Role="drugs" Type="Self.drug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drugs">
+              <PropertyRef Name="dg_Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drug_deliveries_details_drug_specification">
+          <End Role="drug_specification" Type="Self.drug_specification" Multiplicity="1" />
+          <End Role="drug_deliveries_details" Type="Self.drug_deliveries_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_specification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="drug_deliveries_details">
+              <PropertyRef Name="dg_specification_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drug_deliveries_details_drug_supplier">
+          <End Role="drug_supplier" Type="Self.drug_supplier" Multiplicity="1" />
+          <End Role="drug_deliveries_details" Type="Self.drug_deliveries_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drug_deliveries_details">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drug_deliveries_details_drug_units">
+          <End Role="drug_units" Type="Self.drug_units" Multiplicity="1" />
+          <End Role="drug_deliveries_details" Type="Self.drug_deliveries_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_units">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drug_deliveries_details">
+              <PropertyRef Name="dg_units_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drugs_drug_specification">
+          <End Role="drug_specification" Type="Self.drug_specification" Multiplicity="1" />
+          <End Role="drugs" Type="Self.drug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_specification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="drugs">
+              <PropertyRef Name="dg_specification_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_drugs_drug_units">
+          <End Role="drug_units" Type="Self.drug_units" Multiplicity="1" />
+          <End Role="drugs" Type="Self.drug" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_units">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="drugs">
+              <PropertyRef Name="dg_units_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sys_users_sys_usr_type">
+          <End Role="sys_usr_type" Type="Self.sys_usr_type" Multiplicity="1" />
+          <End Role="sys_users" Type="Self.sys_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_usr_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="sys_users">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="drug_categories" EntityType="Self.drug_categories" />
+          <EntitySet Name="drug_deliveries" EntityType="Self.drug_deliveries" />
+          <EntitySet Name="drug_deliveries_details" EntityType="Self.drug_deliveries_details" />
+          <EntitySet Name="drug_entryType" EntityType="Self.drug_entryType" />
+          <EntitySet Name="drug_shelves" EntityType="Self.drug_shelves" />
+          <EntitySet Name="drug_shelves_maping" EntityType="Self.drug_shelves_maping" />
+          <EntitySet Name="drug_specification" EntityType="Self.drug_specification" />
+          <EntitySet Name="drug_supplier" EntityType="Self.drug_supplier" />
+          <EntitySet Name="drug_units" EntityType="Self.drug_units" />
+          <EntitySet Name="drugs" EntityType="Self.drug" />
+          <EntitySet Name="sys_permission" EntityType="Self.sys_permission" />
+          <EntitySet Name="sys_roles" EntityType="Self.sys_roles" />
+          <EntitySet Name="sys_users" EntityType="Self.sys_users" />
+          <EntitySet Name="sys_usr_type" EntityType="Self.sys_usr_type" />
+          <EntitySet Name="sys_permission_roles" EntityType="Self.sys_permission_roles" />
+          <EntitySet Name="sys_user_roles" EntityType="Self.sys_user_roles" />
+          <EntitySet Name="View_GetUserInfo" EntityType="Self.View_GetUserInfo" />
+          <EntitySet Name="View_Permission_Roles" EntityType="Self.View_Permission_Roles" />
+          <AssociationSet Name="FK_drugs_drug_categories" Association="Self.FK_drugs_drug_categories">
+            <End Role="drug_categories" EntitySet="drug_categories" />
+            <End Role="drugs" EntitySet="drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drug_deliveries_details_drug_specification" Association="Self.FK_drug_deliveries_details_drug_specification">
+            <End Role="drug_specification" EntitySet="drug_specification" />
+            <End Role="drug_deliveries_details" EntitySet="drug_deliveries_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drug_deliveries_details_drug_supplier" Association="Self.FK_drug_deliveries_details_drug_supplier">
+            <End Role="drug_supplier" EntitySet="drug_supplier" />
+            <End Role="drug_deliveries_details" EntitySet="drug_deliveries_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drug_deliveries_details_drug_units" Association="Self.FK_drug_deliveries_details_drug_units">
+            <End Role="drug_units" EntitySet="drug_units" />
+            <End Role="drug_deliveries_details" EntitySet="drug_deliveries_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drugs_drug_specification" Association="Self.FK_drugs_drug_specification">
+            <End Role="drug_specification" EntitySet="drug_specification" />
+            <End Role="drugs" EntitySet="drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_drugs_drug_units" Association="Self.FK_drugs_drug_units">
+            <End Role="drug_units" EntitySet="drug_units" />
+            <End Role="drugs" EntitySet="drugs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sys_users_sys_usr_type" Association="Self.FK_sys_users_sys_usr_type">
+            <End Role="sys_usr_type" EntitySet="sys_usr_type" />
+            <End Role="sys_users" EntitySet="sys_users" />
+          </AssociationSet>
+          <EntitySet Name="godown_entry" EntityType="longhu_hisModel.godown_entry" />
+          <EntitySet Name="godown_entry_details" EntityType="longhu_hisModel.godown_entry_details" />
+          <AssociationSet Name="FK_godown_entry_details_drug_categories" Association="longhu_hisModel.FK_godown_entry_details_drug_categories">
+            <End Role="drug_categories" EntitySet="drug_categories" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_specification" Association="longhu_hisModel.FK_godown_entry_details_drug_specification">
+            <End Role="drug_specification" EntitySet="drug_specification" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_supplier" Association="longhu_hisModel.FK_godown_entry_details_drug_supplier">
+            <End Role="drug_supplier" EntitySet="drug_supplier" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_godown_entry_details_drug_units" Association="longhu_hisModel.FK_godown_entry_details_drug_units">
+            <End Role="drug_units" EntitySet="drug_units" />
+            <End Role="godown_entry_details" EntitySet="godown_entry_details" />
+          </AssociationSet>
+          <EntitySet Name="View_GetNotNotedDrugEntries" EntityType="longhu_hisModel.View_GetNotNotedDrugEntries" />
+        </EntityContainer>
+        <EntityType Name="godown_entry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Entry_user_id" Type="Int32" Nullable="false" />
+          <Property Name="purchase_note_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drug_entryType_id" Type="Int32" Nullable="false" />
+          <Property Name="purchase_auditor_id" Type="Int32" Nullable="false" />
+          <Property Name="billNumer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bill_date" Type="DateTime" Precision="3" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="godown_entry_details">
+          <Key>
+            <PropertyRef Name="godown_entry_Id" />
+            <PropertyRef Name="supplier_id" />
+            <PropertyRef Name="dg_Category_id" />
+            <PropertyRef Name="dg_specification_id" />
+            <PropertyRef Name="dg_units_id" />
+            <PropertyRef Name="dg_name" />
+            <PropertyRef Name="dg_name_ab" />
+            <PropertyRef Name="dg_price" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="godown_entry_Id" Type="Int32" Nullable="false" />
+          <Property Name="supplier_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_Category_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_specification_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_units_id" Type="Int32" Nullable="false" />
+          <Property Name="dg_name" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="dg_name_ab" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dg_brand" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_plant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_price" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Delete_flag" Type="Int32" />
+          <NavigationProperty Name="drug_categories" Relationship="longhu_hisModel.FK_godown_entry_details_drug_categories" FromRole="godown_entry_details" ToRole="drug_categories" />
+          <NavigationProperty Name="drug_specification" Relationship="longhu_hisModel.FK_godown_entry_details_drug_specification" FromRole="godown_entry_details" ToRole="drug_specification" />
+          <NavigationProperty Name="drug_supplier" Relationship="longhu_hisModel.FK_godown_entry_details_drug_supplier" FromRole="godown_entry_details" ToRole="drug_supplier" />
+          <NavigationProperty Name="drug_units" Relationship="longhu_hisModel.FK_godown_entry_details_drug_units" FromRole="godown_entry_details" ToRole="drug_units" />
+          <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dg_codes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dg_ProduceArea" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_last_price" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="dg_whole_price" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="drug_Packer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="dg_sales_price" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Drug_batch_number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Dicount_rate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Default_discount_rate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="dg_expiration_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_godown_entry_details_drug_categories">
+          <End Type="longhu_hisModel.drug_categories" Role="drug_categories" Multiplicity="1" />
+          <End Type="longhu_hisModel.godown_entry_details" Role="godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="dg_Category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_specification">
+          <End Type="longhu_hisModel.drug_specification" Role="drug_specification" Multiplicity="1" />
+          <End Type="longhu_hisModel.godown_entry_details" Role="godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_specification">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="dg_specification_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_supplier">
+          <End Type="longhu_hisModel.drug_supplier" Role="drug_supplier" Multiplicity="1" />
+          <End Type="longhu_hisModel.godown_entry_details" Role="godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="supplier_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_godown_entry_details_drug_units">
+          <End Type="longhu_hisModel.drug_units" Role="drug_units" Multiplicity="1" />
+          <End Type="longhu_hisModel.godown_entry_details" Role="godown_entry_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="drug_units">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="godown_entry_details">
+              <PropertyRef Name="dg_units_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="View_GetNotNotedDrugEntries">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Entry_user_id" />
+            <PropertyRef Name="purchase_note_id" />
+            <PropertyRef Name="drug_entryType_id" />
+            <PropertyRef Name="purchase_auditor_id" />
+            <PropertyRef Name="supplier_id" />
+            <PropertyRef Name="dg_Category_id" />
+            <PropertyRef Name="dg_specification_id" />
+            <PropertyRef Name="dg_units_id" />
+            <PropertyRef Name="dg_name" />
+            <PropertyRef Name="dg_name_ab" />
+            <PropertyRef Name="dg_price" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Entry_user_id" Type="Int32" Nullable="false" />
+          <Property Name="purchase_note_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="drug_entryType_id" Type="Int32" Nullable="false" />
+          <Property Name="entryName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="entryName_ab" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_auditor_id" Type="Int32" Nullable="false" />
+          <Property Name="purchase_auditor_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_auditor_Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_auditor_Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_auditor_Telphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_auditor_Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_Telphone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="purchase_Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="billNumer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bill_date" Type="DateTime" Precision="3" />
+          <Property Name="supplier_id" Type="Int32" Nullable="false" />
+          <Property Name="supplier_name" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_Contacts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="supplier_Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dg_Category_id" Type="Int32" Nullable="false" />
+          <Property Name="Category_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Category_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentId" Type="Int32" />
+          <Property Name="dg_specification_id" Type="Int32" Nullable="false" />
+          <Property Name="Specification_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Specific_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dg_units_id" Type="Int32" Nullable="false" />
+          <Property Name="Units_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Units_name_ab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dg_name" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="dg_name_ab" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="dg_brand" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_plant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dg_price" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Createdby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Updated_date" Type="DateTime" Precision="3" />
+          <Property Name="Updatedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Delete_flag" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="longhu_hisModelStoreContainer" CdmEntityContainer="DBConnection">
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="longhu_hisModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DepartName" ColumnName="DepartName" />
+                <ScalarProperty Name="DepartName_ab" ColumnName="DepartName_ab" />
+                <ScalarProperty Name="Depart_director" ColumnName="Depart_director" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_categories">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_categories">
+              <MappingFragment StoreEntitySet="drug_categories">
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Category_name" ColumnName="Category_name" />
+                <ScalarProperty Name="Category_name_ab" ColumnName="Category_name_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_deliveries">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_deliveries">
+              <MappingFragment StoreEntitySet="drug_deliveries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="delivery_user_id" ColumnName="delivery_user_id" />
+                <ScalarProperty Name="drug_id" ColumnName="drug_id" />
+                <ScalarProperty Name="Deliveryi_type" ColumnName="Deliveryi_type" />
+                <ScalarProperty Name="Dg_Destroy_auditor_id" ColumnName="Dg_Destroy_auditor_id" />
+                <ScalarProperty Name="Dg_destory_audit_date" ColumnName="Dg_destory_audit_date" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_deliveries_details">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_deliveries_details">
+              <MappingFragment StoreEntitySet="drug_deliveries_details">
+                <ScalarProperty Name="drug_deliveries_Id" ColumnName="drug_deliveries_Id" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="dg_Category_id" ColumnName="dg_Category_id" />
+                <ScalarProperty Name="dg_specification_id" ColumnName="dg_specification_id" />
+                <ScalarProperty Name="dg_units_id" ColumnName="dg_units_id" />
+                <ScalarProperty Name="dg_name" ColumnName="dg_name" />
+                <ScalarProperty Name="dg_name_ab" ColumnName="dg_name_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="dg_brand" ColumnName="dg_brand" />
+                <ScalarProperty Name="dg_plant" ColumnName="dg_plant" />
+                <ScalarProperty Name="dg_price" ColumnName="dg_price" />
+                <ScalarProperty Name="dg_sale_price" ColumnName="dg_sale_price" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_entryType">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_entryType">
+              <MappingFragment StoreEntitySet="drug_entryType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="entryName" ColumnName="entryName" />
+                <ScalarProperty Name="entryName_ab" ColumnName="entryName_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_shelves">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_shelves">
+              <MappingFragment StoreEntitySet="drug_shelves">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Shelf_no" ColumnName="Shelf_no" />
+                <ScalarProperty Name="Shelf_row_amount" ColumnName="Shelf_row_amount" />
+                <ScalarProperty Name="Shelf_column_amount" ColumnName="Shelf_column_amount" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_shelves_maping">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_shelves_maping">
+              <MappingFragment StoreEntitySet="drug_shelves_maping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dg_category_id" ColumnName="Dg_category_id" />
+                <ScalarProperty Name="drug_id" ColumnName="drug_id" />
+                <ScalarProperty Name="Shelf_no" ColumnName="Shelf_no" />
+                <ScalarProperty Name="Shelg_row_no" ColumnName="Shelg_row_no" />
+                <ScalarProperty Name="Shelg_column_no" ColumnName="Shelg_column_no" />
+                <ScalarProperty Name="current_sotred_amount" ColumnName="current_sotred_amount" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_specification">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_specification">
+              <MappingFragment StoreEntitySet="drug_specification">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Specification_name" ColumnName="Specification_name" />
+                <ScalarProperty Name="Specific_name_ab" ColumnName="Specific_name_ab" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_supplier">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_supplier">
+              <MappingFragment StoreEntitySet="drug_supplier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+                <ScalarProperty Name="supplier_name_ab" ColumnName="supplier_name_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drug_units">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug_units">
+              <MappingFragment StoreEntitySet="drug_units">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Units_name" ColumnName="Units_name" />
+                <ScalarProperty Name="Units_name_ab" ColumnName="Units_name_ab" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drugs">
+            <EntityTypeMapping TypeName="longhu_hisModel.drug">
+              <MappingFragment StoreEntitySet="drugs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="dg_Category_id" ColumnName="dg_Category_id" />
+                <ScalarProperty Name="dg_specification_id" ColumnName="dg_specification_id" />
+                <ScalarProperty Name="dg_units_id" ColumnName="dg_units_id" />
+                <ScalarProperty Name="dg_name" ColumnName="dg_name" />
+                <ScalarProperty Name="dg_name_ab" ColumnName="dg_name_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="dg_brand" ColumnName="dg_brand" />
+                <ScalarProperty Name="dg_plant" ColumnName="dg_plant" />
+                <ScalarProperty Name="dg_price" ColumnName="dg_price" />
+                <ScalarProperty Name="dg_sale_price" ColumnName="dg_sale_price" />
+                <ScalarProperty Name="dg_godown_entry_id" ColumnName="dg_godown_entry_id" />
+                <ScalarProperty Name="dg_expiration_date" ColumnName="dg_expiration_date" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_permission">
+            <EntityTypeMapping TypeName="longhu_hisModel.sys_permission">
+              <MappingFragment StoreEntitySet="sys_permission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Permissionname" ColumnName="Permissionname" />
+                <ScalarProperty Name="Permissionname_ab" ColumnName="Permissionname_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_roles">
+            <EntityTypeMapping TypeName="longhu_hisModel.sys_roles">
+              <MappingFragment StoreEntitySet="sys_roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+                <ScalarProperty Name="Rolename_ab" ColumnName="Rolename_ab" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_users">
+            <EntityTypeMapping TypeName="longhu_hisModel.sys_users">
+              <MappingFragment StoreEntitySet="sys_users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="residentID" ColumnName="residentID" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_usr_type">
+            <EntityTypeMapping TypeName="longhu_hisModel.sys_usr_type">
+              <MappingFragment StoreEntitySet="sys_usr_type">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_permission_roles">
+            <EntityTypeMapping TypeName="longhu_hisModel.sys_permission_roles">
+              <MappingFragment StoreEntitySet="sys_permission_roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="permissions" ColumnName="permissions" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_user_roles">
+            <EntityTypeMapping TypeName="longhu_hisModel.sys_user_roles">
+              <MappingFragment StoreEntitySet="sys_user_roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_GetUserInfo">
+            <EntityTypeMapping TypeName="longhu_hisModel.View_GetUserInfo">
+              <MappingFragment StoreEntitySet="View_GetUserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="residentID" ColumnName="residentID" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+                <ScalarProperty Name="DepartName" ColumnName="DepartName" />
+                <ScalarProperty Name="DepartName_ab" ColumnName="DepartName_ab" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="permissions" ColumnName="permissions" />
+                <ScalarProperty Name="permisionId" ColumnName="permisionId" />
+                <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+                <ScalarProperty Name="Rolename_ab" ColumnName="Rolename_ab" />
+                <ScalarProperty Name="Permissionname" ColumnName="Permissionname" />
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Permission_Roles">
+            <EntityTypeMapping TypeName="longhu_hisModel.View_Permission_Roles">
+              <MappingFragment StoreEntitySet="View_Permission_Roles">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="permisionId" ColumnName="permisionId" />
+                <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+                <ScalarProperty Name="Rolename_ab" ColumnName="Rolename_ab" />
+                <ScalarProperty Name="Permissionname" ColumnName="Permissionname" />
+                <ScalarProperty Name="Permissionname_ab" ColumnName="Permissionname_ab" />
+                <ScalarProperty Name="permissions" ColumnName="permissions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="godown_entry">
+            <EntityTypeMapping TypeName="longhu_hisModel.godown_entry">
+              <MappingFragment StoreEntitySet="godown_entry">
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="bill_date" ColumnName="bill_date" />
+                <ScalarProperty Name="billNumer" ColumnName="billNumer" />
+                <ScalarProperty Name="purchase_auditor_id" ColumnName="purchase_auditor_id" />
+                <ScalarProperty Name="drug_entryType_id" ColumnName="drug_entryType_id" />
+                <ScalarProperty Name="purchase_note_id" ColumnName="purchase_note_id" />
+                <ScalarProperty Name="Entry_user_id" ColumnName="Entry_user_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="godown_entry_details">
+            <EntityTypeMapping TypeName="longhu_hisModel.godown_entry_details">
+              <MappingFragment StoreEntitySet="godown_entry_details">
+                <ScalarProperty Name="dg_expiration_date" ColumnName="dg_expiration_date" />
+                <ScalarProperty Name="Default_discount_rate" ColumnName="Default_discount_rate" />
+                <ScalarProperty Name="Dicount_rate" ColumnName="Dicount_rate" />
+                <ScalarProperty Name="Drug_batch_number" ColumnName="Drug_batch_number" />
+                <ScalarProperty Name="dg_sales_price" ColumnName="dg_sales_price" />
+                <ScalarProperty Name="drug_Packer" ColumnName="drug_Packer" />
+                <ScalarProperty Name="dg_whole_price" ColumnName="dg_whole_price" />
+                <ScalarProperty Name="dg_last_price" ColumnName="dg_last_price" />
+                <ScalarProperty Name="dg_ProduceArea" ColumnName="dg_ProduceArea" />
+                <ScalarProperty Name="dg_codes" ColumnName="dg_codes" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="dg_price" ColumnName="dg_price" />
+                <ScalarProperty Name="dg_plant" ColumnName="dg_plant" />
+                <ScalarProperty Name="dg_brand" ColumnName="dg_brand" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="dg_name_ab" ColumnName="dg_name_ab" />
+                <ScalarProperty Name="dg_name" ColumnName="dg_name" />
+                <ScalarProperty Name="dg_units_id" ColumnName="dg_units_id" />
+                <ScalarProperty Name="dg_specification_id" ColumnName="dg_specification_id" />
+                <ScalarProperty Name="dg_Category_id" ColumnName="dg_Category_id" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="godown_entry_Id" ColumnName="godown_entry_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_GetNotNotedDrugEntries">
+            <EntityTypeMapping TypeName="longhu_hisModel.View_GetNotNotedDrugEntries">
+              <MappingFragment StoreEntitySet="View_GetNotNotedDrugEntries">
+                <ScalarProperty Name="Delete_flag" ColumnName="Delete_flag" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+                <ScalarProperty Name="Createdby" ColumnName="Createdby" />
+                <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="dg_price" ColumnName="dg_price" />
+                <ScalarProperty Name="dg_plant" ColumnName="dg_plant" />
+                <ScalarProperty Name="dg_brand" ColumnName="dg_brand" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="dg_name_ab" ColumnName="dg_name_ab" />
+                <ScalarProperty Name="dg_name" ColumnName="dg_name" />
+                <ScalarProperty Name="Units_name_ab" ColumnName="Units_name_ab" />
+                <ScalarProperty Name="Units_name" ColumnName="Units_name" />
+                <ScalarProperty Name="dg_units_id" ColumnName="dg_units_id" />
+                <ScalarProperty Name="Specific_name_ab" ColumnName="Specific_name_ab" />
+                <ScalarProperty Name="Specification_name" ColumnName="Specification_name" />
+                <ScalarProperty Name="dg_specification_id" ColumnName="dg_specification_id" />
+                <ScalarProperty Name="parentId" ColumnName="parentId" />
+                <ScalarProperty Name="Category_name_ab" ColumnName="Category_name_ab" />
+                <ScalarProperty Name="Category_name" ColumnName="Category_name" />
+                <ScalarProperty Name="dg_Category_id" ColumnName="dg_Category_id" />
+                <ScalarProperty Name="supplier_Address" ColumnName="supplier_Address" />
+                <ScalarProperty Name="supplier_Mobile" ColumnName="supplier_Mobile" />
+                <ScalarProperty Name="supplier_Telephone" ColumnName="supplier_Telephone" />
+                <ScalarProperty Name="supplier_Contacts" ColumnName="supplier_Contacts" />
+                <ScalarProperty Name="supplier_name_ab" ColumnName="supplier_name_ab" />
+                <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+                <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+                <ScalarProperty Name="bill_date" ColumnName="bill_date" />
+                <ScalarProperty Name="billNumer" ColumnName="billNumer" />
+                <ScalarProperty Name="purchase_Adress" ColumnName="purchase_Adress" />
+                <ScalarProperty Name="purchase_Telphone" ColumnName="purchase_Telphone" />
+                <ScalarProperty Name="purchase_Mobile" ColumnName="purchase_Mobile" />
+                <ScalarProperty Name="purchase_Account" ColumnName="purchase_Account" />
+                <ScalarProperty Name="purchase_Name" ColumnName="purchase_Name" />
+                <ScalarProperty Name="purchase_auditor_Adress" ColumnName="purchase_auditor_Adress" />
+                <ScalarProperty Name="purchase_auditor_Telphone" ColumnName="purchase_auditor_Telphone" />
+                <ScalarProperty Name="purchase_auditor_Mobile" ColumnName="purchase_auditor_Mobile" />
+                <ScalarProperty Name="purchase_auditor_Account" ColumnName="purchase_auditor_Account" />
+                <ScalarProperty Name="purchase_auditor_Name" ColumnName="purchase_auditor_Name" />
+                <ScalarProperty Name="purchase_auditor_id" ColumnName="purchase_auditor_id" />
+                <ScalarProperty Name="entryName_ab" ColumnName="entryName_ab" />
+                <ScalarProperty Name="entryName" ColumnName="entryName" />
+                <ScalarProperty Name="drug_entryType_id" ColumnName="drug_entryType_id" />
+                <ScalarProperty Name="purchase_note_id" ColumnName="purchase_note_id" />
+                <ScalarProperty Name="Entry_user_id" ColumnName="Entry_user_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

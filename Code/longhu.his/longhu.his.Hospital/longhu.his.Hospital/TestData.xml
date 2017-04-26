@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Registeration>
+  <Data>
+    <ID value="100000"/>
+    <Name value="吴楠"/>
+    <Sex value="男"/>
+    <Age value="32"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="内科"/>
+    <ID Doctor="于慧卿"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100001"/>
+    <Name value="汪贺媛"/>
+    <Sex value="女"/>
+    <Age value="25"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="外科"/>
+    <ID Doctor="陶静华"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100002"/>
+    <Name value="霍俊英"/>
+    <Sex value="女"/>
+    <Age value="28"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="妇科"/>
+    <ID Doctor="邹一萍"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100003"/>
+    <Name value="刘志明"/>
+    <Sex value="男"/>
+    <Age value="40"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="牙科"/>
+    <ID Doctor="王宏卫"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100004"/>
+    <Name value="郑文慧"/>
+    <Sex value="女"/>
+    <Age value="6"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="儿科"/>
+    <ID Doctor="张海滨"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100005"/>
+    <Name value="陈红耀"/>
+    <Sex value="男"/>
+    <Age value="35"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="内科"/>
+    <ID Doctor="于慧卿"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100006"/>
+    <Name value="安英杰"/>
+    <Sex value="男"/>
+    <Age value="32"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="外科"/>
+    <ID Doctor="陶静华"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100007"/>
+    <Name value="贾京绵"/>
+    <Sex value="女"/>
+    <Age value="4"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="儿科"/>
+    <ID Doctor="邹一萍"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100008"/>
+    <Name value="李晓明"/>
+    <Sex value="男"/>
+    <Age value="29"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="牙科"/>
+    <ID Doctor="王宏卫"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+
+  <Data>
+    <ID value="100009"/>
+    <Name value="梁恒仁"/>
+    <Sex value="女"/>
+    <Age value="36"/>
+    <IdentityCardNumber value="610102198612241234"/>
+    <ID Comments="感冒"/>
+    <ID Department="妇科"/>
+    <ID Doctor="张海滨"/>
+    <ID RealPay="10.00"/>
+    <ID RegisterDate="2017-04-23 17:29:35"/>
+  </Data>
+</Registeration>

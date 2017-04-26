@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B27D1D0F-E2A1-44D4-B395-DE676C2FCDFB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>longhu.his.Model</RootNamespace>
+    <AssemblyName>longhu.his.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="department.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_categories.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_deliveries.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_deliveries_details.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_entryType.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_shelves.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_shelves_maping.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_specification.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_supplier.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="drug_units.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="godown_entry.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="godown_entry_details.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="longhu.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>longhu.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="longhu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="longhu.his.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>longhu.his.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Partial\department_partial.cs" />
+    <Compile Include="Partial\drug_categories_partial.cs" />
+    <Compile Include="Partial\drug_entryType_partial.cs" />
+    <Compile Include="Partial\drug_partial.cs" />
+    <Compile Include="Partial\drug_specification_partial.cs" />
+    <Compile Include="Partial\drug_supplier_partial.cs" />
+    <Compile Include="Partial\drug_units_partial.cs" />
+    <Compile Include="Partial\godown_entry_details_partial.cs" />
+    <Compile Include="Partial\godown_entry_partial.cs" />
+    <Compile Include="Partial\sys_permission_partial.cs" />
+    <Compile Include="Partial\sys_permission_roles_partial.cs" />
+    <Compile Include="Partial\sys_roles_partial.cs" />
+    <Compile Include="Partial\sys_users_Partial.cs" />
+    <Compile Include="Partial\sys_user_roles_partial.cs" />
+    <Compile Include="Partial\sys_usr_type_partial.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sys_permission.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sys_permission_roles.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sys_roles.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sys_users.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sys_user_roles.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sys_usr_type.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DrugEntryDvItem.cs" />
+    <Compile Include="ViewModel\DrugEntryModel.cs" />
+    <Compile Include="ViewModel\DrugsNotNotedEntryModel.cs" />
+    <Compile Include="ViewModel\Prescription.cs" />
+    <Compile Include="ViewModel\PrescriptionDrug.cs" />
+    <Compile Include="ViewModel\VMRegisteration.cs" />
+    <Compile Include="View_GetNotNotedDrugEntries.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_GetUserInfo.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Permission_Roles.cs">
+      <DependentUpon>longhu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\VMPatient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="longhu.his.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>longhu.his.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="longhu.his.edmx.diagram">
+      <DependentUpon>longhu.his.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="longhu.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>longhu.his.edmx</DependentUpon>
+      <LastGenOutput>longhu.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="longhu.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>longhu.his.edmx</DependentUpon>
+      <LastGenOutput>longhu.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
